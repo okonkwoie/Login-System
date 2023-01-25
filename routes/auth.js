@@ -30,7 +30,7 @@ authRouter.post('/login', async (req, res, next) => {
                     }
 
                     const body = { _id: user._id, email: user.email } //store id and email in the jwt payload
-                    const token = jwt.sign({ user: body }, process.env.JWT_SECRET) //sign the token (encryption) with a secret and send back to the user
+                    const token = jwt.sign({ user: body }, process.env.JWT_SECRET, { expiresIn: '15m' }) //sign the token (encryption) with a secret and send back to the user
 
                     return res.json({ token })
                 }
