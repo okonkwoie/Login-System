@@ -40,8 +40,7 @@ authRouter.post('/login', async (req, res, next) => {
         catch (error) {
             return next(error)
         }
-    }
-    )(req, res, next)
+    })
 
 })
 
